@@ -1,0 +1,8 @@
+com.wacai.open.baige.sdk
+com.wacai.open.baige.sdk.auth
+com.wacai.open.baige.sdk.consumer
+com.wacai.open.baige.sdk.consumer.atomic
+com.wacai.open.baige.sdk.consumer.listener
+com.wacai.open.baige.sdk.exception
+com.wacai.open.baige.sdk.processor
+com.wacai.open.baige.sdk.producer

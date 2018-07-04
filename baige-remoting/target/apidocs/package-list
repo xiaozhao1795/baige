@@ -1,0 +1,13 @@
+com.wacai.open.baige.remoting
+com.wacai.open.baige.remoting.annotation
+com.wacai.open.baige.remoting.common
+com.wacai.open.baige.remoting.exception
+com.wacai.open.baige.remoting.listener
+com.wacai.open.baige.remoting.netty
+com.wacai.open.baige.remoting.netty.handler
+com.wacai.open.baige.remoting.netty.websocket
+com.wacai.open.baige.remoting.netty.websocket.client
+com.wacai.open.baige.remoting.netty.websocket.handler
+com.wacai.open.baige.remoting.netty.websocket.listener
+com.wacai.open.baige.remoting.netty.websocket.server
+com.wacai.open.baige.remoting.protocol
