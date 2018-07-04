@@ -58,7 +58,6 @@
     <module>baige-sdk</module>
     <module>baige-remoting</module>
     <module>baige-common</module>
-    <module>baige-sdk-example</module>
   </modules>
 
 

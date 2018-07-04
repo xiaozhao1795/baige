@@ -1,4 +1,4 @@
-package com.wacai.open.baige.sdk.example.quickstart;
+package com.wacai.open.baige.sdk.example;
 
 import com.wacai.open.baige.common.ThreadFactoryImpl;
 import com.wacai.open.baige.common.message.Message;
