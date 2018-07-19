@@ -34,6 +34,9 @@ public interface RemotingClient extends RemotingService {
   void suspend();
 
   void resume();
-  
+
+
+  void sendKeepaliveHeartBeat(long sendTimeoutMs) throws Exception;
+
 
 }

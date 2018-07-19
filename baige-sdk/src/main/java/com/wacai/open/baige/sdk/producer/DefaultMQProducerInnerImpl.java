@@ -148,6 +148,8 @@ public class DefaultMQProducerInnerImpl implements MQProducerInner {
         /*授权认证不通过*/
         LOGGER.warn("not pass authorize, reason is {}", authResult.getFailReason());
         throw new AuthException(authResult.getFailReason(), null);
+      } else {
+        this.mqClientInstance.startScheduledTask();
       }
 
       this.clientState = ClientState.STARTED;

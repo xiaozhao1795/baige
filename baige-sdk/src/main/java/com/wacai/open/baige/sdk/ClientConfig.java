@@ -14,6 +14,13 @@ public class ClientConfig {
   /*发送心跳的超时时间*/
   private int heartbeartSendTimeoutMs = 3000;
 
+  /**
+   *
+   * keepalive 心跳包发送超时时间， 单位：ms
+   */
+  private int  keepaliveHeartbeartSendTimeoutMs = 3000;
+
+
   private int connectTimeousMs = 5000;
 
   /*发送认证请求的超时时间*/
@@ -76,6 +83,14 @@ public class ClientConfig {
 
   public void setHeartbeartSendTimeoutMs(int heartbeartSendTimeoutMs) {
     this.heartbeartSendTimeoutMs = heartbeartSendTimeoutMs;
+  }
+
+  public int getKeepaliveHeartbeartSendTimeoutMs() {
+    return keepaliveHeartbeartSendTimeoutMs;
+  }
+
+  public void setKeepaliveHeartbeartSendTimeoutMs(int keepaliveHeartbeartSendTimeoutMs) {
+    this.keepaliveHeartbeartSendTimeoutMs = keepaliveHeartbeartSendTimeoutMs;
   }
 
   public int getConnectTimeousMs() {

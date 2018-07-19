@@ -368,6 +368,11 @@ public class WebSocketRemotingClient  extends NettyRemotingAbstract implements R
 
 
   @Override
+  public void sendKeepaliveHeartBeat(long sendTimeoutMs) throws IOException {
+    wsSocket.sendPing();
+  }
+
+  @Override
   public void start() throws Exception {
     this.webSocketClient.start();
     URI uri = new URI(this.wsURI);

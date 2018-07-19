@@ -18,6 +18,7 @@ import java.util.concurrent.Future;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -53,6 +54,8 @@ public class MQClientInstance {
   private final AckMessageService ackMessageService;
 
   private volatile boolean scheduledTaskSuspend = false;
+
+  private AtomicBoolean isScheduleTaskStarted = new AtomicBoolean(false);
 
 
 
@@ -288,23 +291,25 @@ public class MQClientInstance {
   }
 
 
-  private void startScheduledTask() {
+  public  void startScheduledTask() {
 
-    this.scheduledExecutorService.scheduleAtFixedRate(new Runnable() {
-      @Override
-      public void run() {
-        if (!scheduledTaskSuspend) { //调度任务不支持suspend操作， 用boolean 变量来控制。
-//          try {
-//            sendHeartbeatToServer();
-//          } catch (Exception e) {
-//            LOGGER.error("ScheduledTask send heartbeat to broker catch Exception ", e);
-//          }
+    if (isScheduleTaskStarted.compareAndSet(false, true)) {
+      this.scheduledExecutorService.scheduleAtFixedRate(new Runnable() {
+        @Override
+        public void run() {
+          if (!scheduledTaskSuspend) { //调度任务不支持suspend操作， 用boolean 变量来控制。
+            try {
+              sendKeepAliveHeartBeatToServer(clientConfig.getKeepaliveHeartbeartSendTimeoutMs());
+            } catch (Exception e) {
+              LOGGER.error("ScheduledTask send keepalive heartbeat to broker catch Exception ", e);
+            }
+          }
         }
-      }
-    }, 5000, this.clientConfig.getHeartbeatBrokerInterval(), TimeUnit.MILLISECONDS);
-
+      }, 5000, this.clientConfig.getHeartbeatBrokerInterval(), TimeUnit.MILLISECONDS);
+    }
 
   }
+
 
   private void stopScheduledTask() {
     if (this.scheduledExecutorService != null) {
@@ -324,6 +329,13 @@ public class MQClientInstance {
 
 
   }
+
+  private void sendKeepAliveHeartBeatToServer(long keepaliveHeartbeatSendTimeoutMs)
+      throws Exception {
+    this.mqClientAPIImpl.sendKeepAliveHeartbeatData(keepaliveHeartbeatSendTimeoutMs);
+  }
+
+
 
 
 

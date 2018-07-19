@@ -55,6 +55,7 @@ public class MQClientAPIImpl {
 
 
 
+
   public MQClientAPIImpl(NettyClientConfig nettyClientConfig, final ClientRemotingProcessor
       clientRemotingProcessor, ClientConfig clientConfig , MQClientInstance mqClientInstance) {
     this.listeners = new LinkedList<>();
@@ -284,6 +285,11 @@ public class MQClientAPIImpl {
     }
     throw new ServerException(response.getCode(), response.getRemark());
   }
+
+  public void sendKeepAliveHeartbeatData(long keepaliveHeartbeatSendTimeoutMs) throws Exception {
+    this.remotingClient.sendKeepaliveHeartBeat(keepaliveHeartbeatSendTimeoutMs);
+  }
+
 
 
   private PullResult pullMessageSync(String serverAddr, RemotingCommand request,

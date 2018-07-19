@@ -240,4 +240,13 @@ public class WsSocket {
     }
   }
 
+
+  public void sendPing() throws IOException {
+
+    ByteBuffer byteBuffer = ByteBuffer.allocate(1);
+    session.getRemote().sendPing(byteBuffer);
+
+  }
+
+
 }

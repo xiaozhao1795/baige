@@ -578,4 +578,10 @@ public class NettyRemotingClient extends NettyRemotingAbstract implements Remoti
 
   }
 
+  @Override
+  public void sendKeepaliveHeartBeat(long sendTimeoutMs) {
+
+  }
+
+
 }
