@@ -6,7 +6,6 @@
       <module fileurl="file://$PROJECT_DIR$/baige-common/baige-common.iml" filepath="$PROJECT_DIR$/baige-common/baige-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/baige-remoting/baige-remoting.iml" filepath="$PROJECT_DIR$/baige-remoting/baige-remoting.iml" />
       <module fileurl="file://$PROJECT_DIR$/baige-sdk/baige-sdk.iml" filepath="$PROJECT_DIR$/baige-sdk/baige-sdk.iml" />
-      <module fileurl="file://$PROJECT_DIR$/baige-sdk-example/baige-sdk-example.iml" filepath="$PROJECT_DIR$/baige-sdk-example/baige-sdk-example.iml" />
     </modules>
   </component>
 </project>

@@ -9,6 +9,7 @@
         <option name="importOrderConfigFilePath" value="$PROJECT_DIR$/../../codeformat/codeformat.xml" />
         <option name="importOrderFromFile" value="true" />
         <option name="name" value="default" />
+        <option name="optimizeImports" value="false" />
         <option name="pathToConfigFileJava" value="$PROJECT_DIR$/../../codeformat/codeformat.xml" />
         <option name="selectedJavaProfile" value="alibaba-cn-format" />
         <option name="useForLiveTemplates" value="true" />
