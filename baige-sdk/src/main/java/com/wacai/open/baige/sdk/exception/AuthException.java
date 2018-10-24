@@ -9,7 +9,7 @@ public class AuthException extends Exception {
 
 
   public AuthException(String errorMessage, Throwable cause) {
-    super(errorMessage);
+    super(errorMessage,cause);
     this.responseCode = -1;
     this.errorMessage = errorMessage;
   }

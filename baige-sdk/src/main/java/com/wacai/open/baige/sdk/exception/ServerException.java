@@ -8,7 +8,7 @@ public class ServerException extends Exception {
 
 
   public ServerException(String errorMessage, Throwable cause) {
-    super(errorMessage);
+    super(errorMessage,cause);
     this.responseCode = -1;
     this.errorMessage = errorMessage;
   }
